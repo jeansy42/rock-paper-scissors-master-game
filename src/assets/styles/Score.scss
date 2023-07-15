@@ -1,0 +1,66 @@
+@import "variables";
+@import "mixins";
+.header {
+  margin-top: 40px;
+  width: 65%;
+  height: fit-content;
+  border: 2px solid $header_outline;
+  border-radius: 10px;
+  padding: 16px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  align-self: center;
+  z-index: 20;
+}
+.options_container {
+  display: flex;
+  flex-direction: column;
+  font-weight: 700;
+  align-self: center;
+  color: #fff;
+  span {
+    line-height: 0.8;
+    font-size: x-large;
+  }
+}
+.score_container {
+  width: 130px;
+  padding: 10px 0;
+  background-color: #fff;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  span {
+    display: flex;
+    justify-content: center;
+    font-weight: 700;
+    color: $score_text;
+  }
+  & :last-child {
+    color: $dark_text;
+    font-size: 48px;
+  }
+}
+
+@include breakpoint() {
+  .header {
+    min-width: 350px;
+  }
+  .options_container {
+    span {
+      font-size: 15px;
+    }
+  }
+  .score_container {
+    width: 90px;
+    span {
+      font-size: 11px;
+    }
+    & :last-child {
+      font-size: 40px;
+    }
+  }
+}

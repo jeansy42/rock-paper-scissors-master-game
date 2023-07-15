@@ -1,0 +1,31 @@
+@import "variables";
+@import "mixins";
+.btn_container {
+  width: 100%;
+  margin-top: 70px;
+  margin-bottom: 60px;
+  display: flex;
+  justify-content: flex-end;
+  button {
+    background-color: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+    border-radius: 8px;
+    align-self: flex-end;
+    padding: 9px 34px;
+    letter-spacing: 1.5px;
+    font-size: $btn_fontSize;
+    margin-right: 40px;
+  }
+}
+
+@include breakpoint() {
+  .btn_container {
+    margin-top: 180px;
+    justify-content: center;
+    button {
+      margin-right: 0;
+      margin-top: 40px;
+    }
+  }
+}

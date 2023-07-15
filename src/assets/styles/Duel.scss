@@ -1,0 +1,198 @@
+@import "./variables";
+@import "./mixins";
+.duel_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%;
+  margin-top: 60px;
+}
+.picked {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-content: center;
+  font-size: 22px;
+  z-index: 55;
+  span {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    color: #fff;
+    letter-spacing: 2px;
+  }
+}
+.picked.house {
+  .auxiliar.active {
+    animation: rotater 0.7s 1 ease-out;
+    transform-style: flat;
+  }
+}
+.picked.user {
+  .auxiliar.active {
+    animation: translater 0.7s 1 ease-out;
+    transform-style: flat;
+  }
+}
+.picked.winner {
+  z-index: 52;
+  .auxiliar.active {
+    padding-top: 1px;
+    box-shadow: 0 0 0 55px #56507018, 0 0 0 100px #56507018,
+      0 0 0 155px #56507018;
+  }
+}
+.auxiliar.active {
+  max-width: fit-content;
+  position: static;
+  padding: $shadow_y * 1.8 0;
+
+  .exterior_icon.rock_ex {
+    box-shadow: 0 $shadow_y * 1.8 0 #a82842;
+  }
+  .exterior_icon.paper_ex {
+    box-shadow: 0 $shadow_y * 1.8 0 #2b45c4;
+  }
+  .exterior_icon.spock_ex {
+    box-shadow: 0 $shadow_y * 1.8 0 #34a3b6;
+  }
+  .exterior_icon.scissors_ex {
+    box-shadow: 0 $shadow_y * 1.8 0 #ab7410;
+  }
+  .exterior_icon.lizard_ex {
+    box-shadow: 0 $shadow_y * 1.8 0 #6029c5;
+  }
+  .exterior_icon {
+    width: $hw_exterior * 2;
+    height: $hw_exterior * 2;
+    padding-top: $shadow_y * 1.8;
+    .icon_container {
+      box-shadow: 0 $shadow_y * -1.8 0 #dadada;
+      padding: $icon_p * 1.5;
+      .icon {
+        padding: $icon_p * 2;
+      }
+    }
+  }
+}
+.auxiliar.active:hover {
+  transform: scale(1);
+  filter: none;
+  cursor: auto;
+}
+.backfont {
+  padding: 110px;
+  border-radius: 50%;
+  background-color: #00000024;
+  position: relative;
+  top: 20px;
+}
+.result {
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  align-self: center;
+  z-index: 60;
+  span {
+    margin-bottom: 10px;
+    font-size: $large_font;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+  }
+  button {
+    border: none;
+    color: $dark_text;
+    border-radius: 8px;
+    padding: 14px;
+    letter-spacing: 1.4px;
+    font-size: $btn_fontSize;
+  }
+}
+//Responsive Design_____________________________________
+@include breakpoint() {
+  .duel_container {
+    position: relative;
+  }
+  .picked {
+    flex-direction: column-reverse;
+    span {
+      font-size: 14px;
+      margin-bottom: 0;
+      margin-top: 30px;
+    }
+  }
+  .picked.winner {
+    .auxiliar.active {
+      box-shadow: 0 0 0 15px #56507018, 0 0 0 45px #56507018,
+        0 0 0 80px #56507018;
+    }
+  }
+
+  .auxiliar.active {
+    align-self: center;
+    padding: $shadowM_y * 1.2 0;
+
+    .exterior_icon.rock_ex {
+      box-shadow: 0 $shadowM_y * 1.2 0 #a82842;
+    }
+    .exterior_icon.paper_ex {
+      box-shadow: 0 $shadowM_y * 1.2 0 #2b45c4;
+    }
+    .exterior_icon.spock_ex {
+      box-shadow: 0 $shadowM_y * 1.2 0 #34a3b6;
+    }
+    .exterior_icon.scissors_ex {
+      box-shadow: 0 $shadowM_y * 1.2 0 #ab7410;
+    }
+    .exterior_icon.lizard_ex {
+      box-shadow: 0 $shadowM_y * 1.2 0 #6029c5;
+    }
+    .exterior_icon {
+      width: $hwM_exterior * 1.4;
+      height: $hwM_exterior * 1.4;
+      padding-top: $shadowM_y * 1.2;
+      .icon_container {
+        box-shadow: 0 $shadowM_y * -1.2 0 #dadada;
+        padding: $iconM_p * 0.9;
+        .icon {
+          padding: $iconM_p * 1.5;
+        }
+      }
+    }
+  }
+  .backfont {
+    padding: 0;
+    width: 98px;
+    height: 98px;
+    top: -15px;
+  }
+  .result {
+    position: absolute;
+    top: 260px;
+    margin-bottom: 30px;
+  }
+}
+/*____________________________________________________*/
+
+//Animations____________________________________________
+@keyframes rotater {
+  0% {
+    transform: rotateZ(0deg) scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: rotateZ(360deg) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes translater {
+  0% {
+    transform: translateX(-200px) scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0px) scale(1);
+    opacity: 1;
+  }
+}

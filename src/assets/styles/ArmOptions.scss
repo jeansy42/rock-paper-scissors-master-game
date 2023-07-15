@@ -1,0 +1,182 @@
+@import "variables";
+@import "mixins";
+
+%arm_options {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.arm_options {
+  background-image: url("../Images/bg-pentagon.svg");
+  width: $hw_arm_options + 20px;
+  min-width: $hw_arm_options;
+  height: $hw_arm_options;
+  min-height: $hw_arm_options;
+  margin-top: 120px;
+  position: relative;
+  align-self: center;
+  @extend %arm_options;
+}
+
+.auxiliar {
+  padding: $shadow_y 0;
+  position: absolute;
+  cursor: pointer;
+  transition: transform 0.3s;
+  @include arm_style($border: 50%);
+}
+
+.auxiliar:hover {
+  transform: scale(1.3);
+  filter: contrast(120%);
+}
+
+.auxiliar_rock {
+  right: 1%;
+  top: 78%;
+}
+
+.auxiliar_lizard {
+  top: 78%;
+  left: 1%;
+}
+
+.auxiliar_paper {
+  top: 22%;
+  right: -20%;
+}
+
+.auxiliar_spock {
+  top: 22%;
+  left: -20%;
+}
+
+.auxiliar_scissors {
+  bottom: 75%;
+  left: 30%;
+}
+
+.exterior_icon {
+  height: $hw_exterior;
+  width: $hw_exterior;
+  padding-top: $shadow_y;
+  @include arm_style($border: 50%);
+}
+
+.rock_ex {
+  background-image: $rock_gradient;
+  box-shadow: 0 $shadow_y 0 #a82842;
+
+  .icon_container {
+    padding: $icon_p * 0.9;
+  }
+}
+
+.lizard_ex {
+  background-image: $lizard_gradient;
+  box-shadow: 0 $shadow_y 0 #6029c5;
+}
+
+.paper_ex {
+  background-image: $paper_gradient;
+  box-shadow: 0 $shadow_y 0 #2b45c4;
+}
+
+.spock_ex {
+  background-image: $cyan;
+  box-shadow: 0 $shadow_y 0 #34a3b6;
+}
+
+.scissors_ex {
+  background-image: $scissors_gradient;
+  box-shadow: 0 $shadow_y 0 #ab7410;
+}
+
+.icon_container {
+  padding: $icon_p * 0.7;
+  background-color: #fff;
+  box-shadow: 0 $shadow_y * -1 0 #dadada;
+  @include arm_style($border: 50%);
+}
+
+.icon {
+  padding: $icon_p;
+}
+
+.rock {
+  background-image: url("../Images/icon-rock.svg");
+  @extend %arm_options;
+  padding: $icon_p * 0.8;
+}
+
+.scissors {
+  background-image: url("../Images/icon-scissors.svg");
+  @extend %arm_options;
+}
+
+.paper {
+  background-image: url("../Images/icon-paper.svg");
+  @extend %arm_options;
+}
+
+.lizard {
+  background-image: url("../Images/icon-lizard.svg");
+  @extend %arm_options;
+}
+
+.spock {
+  background-image: url("../Images/icon-spock.svg");
+  @extend %arm_options;
+}
+
+//Responsive Design_______________________________________
+@include breakpoint() {
+  .arm_options {
+    width: $hwM_arm_options + 20px;
+    min-width: $hwM_arm_options;
+    height: $hwM_arm_options;
+    min-height: $hwM_arm_options;
+  }
+  .auxiliar {
+    padding: $shadowM_y 0;
+  }
+  .exterior_icon {
+    height: $hwM_exterior;
+    width: $hwM_exterior;
+    padding-top: $shadowM_y;
+  }
+  .rock_ex {
+    box-shadow: 0 $shadowM_y 0 #a82842;
+
+    .icon_container {
+      padding: $iconM_p * 0.9;
+    }
+  }
+
+  .lizard_ex {
+    box-shadow: 0 $shadowM_y 0 #6029c5;
+  }
+
+  .paper_ex {
+    box-shadow: 0 $shadowM_y 0 #2b45c4;
+  }
+
+  .spock_ex {
+    box-shadow: 0 $shadowM_y 0 #34a3b6;
+  }
+
+  .scissors_ex {
+    box-shadow: 0 $shadowM_y 0 #ab7410;
+  }
+  .icon_container {
+    padding: $iconM_p * 0.7;
+    box-shadow: 0 $shadowM_y * -1 0 #dadada;
+  }
+  .icon {
+    padding: $iconM_p;
+  }
+  .rock {
+    padding: $iconM_p * 0.8;
+  }
+}

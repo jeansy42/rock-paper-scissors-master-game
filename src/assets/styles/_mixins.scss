@@ -1,0 +1,20 @@
+@mixin arm_style(
+  $direction: row,
+  $justify: center,
+  $align: center,
+  $wrap: wrap,
+  $border: 0%
+) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  flex-wrap: $wrap;
+  align-content: $align;
+  border-radius: $border;
+}
+
+@mixin breakpoint() {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}

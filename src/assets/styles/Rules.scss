@@ -1,0 +1,72 @@
+@import "./variables";
+@import "./mixins";
+
+%arm_options {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.rules_modal {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: #00000074;
+  z-index: 100;
+  @include arm_style();
+}
+.rules_container {
+  padding: 20px 15px;
+  background-color: #ffffff;
+  @include arm_style($direction: column, $border: 2%);
+}
+.rules_header {
+  @include arm_style($justify: space-between);
+  padding: 10px;
+  & :first-child {
+    font-size: 30px;
+    font-weight: 700;
+    color: $dark_text;
+  }
+  & :last-child {
+    background-image: url(../Images/icon-close.svg);
+    @extend %arm_options;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+  & :last-child:hover {
+    transform: scale(1.2);
+  }
+}
+.rules_auxiliar {
+  padding: 20px;
+}
+.rules {
+  background-image: url(../Images/image-rules-bonus.svg);
+  @extend %arm_options;
+  padding: 170px;
+}
+
+@include breakpoint() {
+  .rules_container {
+    border-radius: 0;
+    height: 100%;
+    width: 100%;
+    justify-content: flex-start;
+  }
+  .rules_header {
+    position: relative;
+    flex-direction: column;
+    margin: 65px 0;
+    & :last-child {
+      position: absolute;
+      top: 600px;
+      align-self: center;
+    }
+  }
+  .rules{
+    padding: 160px;
+  }
+}
