@@ -50,6 +50,13 @@
 }
 
 @include breakpoint() {
+  .rules_modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+  }
   .rules_container {
     border-radius: 0;
     height: 100%;
@@ -62,11 +69,11 @@
     margin: 65px 0;
     & :last-child {
       position: absolute;
-      top: 600px;
+      top: 580px;
       align-self: center;
     }
   }
-  .rules{
+  .rules {
     padding: 160px;
   }
 }
