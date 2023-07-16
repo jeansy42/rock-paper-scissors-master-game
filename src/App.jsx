@@ -10,7 +10,10 @@ import Btn from "./components/Btn";
 function App() {
   const [win, setWin] = useState("false");
   const [showRules, setShowRules] = useState(false);
-  const [score, setScore] = useState(0);
+  const [score, setScore] = useState(() => {
+    if (localStorage.getItem("score")) return localStorage.getItem("score");
+    else return 0;
+  });
   const [result, setResult] = useState("");
   const [userArmSelected, setUserArmSelected] = useState("");
   const [houseArmSelected, setHouseArmSelected] = useState("");
@@ -102,6 +105,9 @@ function App() {
     }
   }, [houseArmSelected]);
 
+  useEffect(() => {
+    localStorage.setItem("score", score);
+  }, [score]);
   return (
     <>
       <GlobalContext.Provider
